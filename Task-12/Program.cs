@@ -14,6 +14,8 @@ builder.Services.AddDbContext<MyDbContext>(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<ITripService, TripService>();
+builder.Services.AddScoped<IClientsService, ClientsService>();
+
 
 var app = builder.Build();
 

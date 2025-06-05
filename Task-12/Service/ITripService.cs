@@ -5,8 +5,6 @@ namespace Task_12.Service;
 public interface ITripService
 {
     Task<GetAllDTO> GetAll(int page, int pageSize);
-    Task ClientHasTrip(int clientId);
-    Task DeleteClient(int clientId);
     Task ClientExists(string pesel);
     Task ClientAssignedToTrip(int clientId, int tripId);
     Task CheckTrip(int tripId, DateTime? date);

@@ -33,25 +33,6 @@ public class TripsController : ControllerBase
         }
     }
 
-    [HttpDelete("{idClient}")]
-    public async Task<IActionResult> DeleteClient(int idClient)
-    {
-        try
-        {
-            await _tripService.ClientHasTrip(idClient);
-            await _tripService.DeleteClient(idClient);
-            return NoContent();
-        }
-        catch (NotFoundException e)
-        {
-            return NotFound(e.Message);
-        }
-        catch (ConflictException e)
-        {
-            return Conflict(e.Message);
-        }
-    }
-
     [HttpPost("{idClient}/clients")]
     public async Task<IActionResult> AssignClientToTrip([FromBody] AssignClientToTipDTO dto, int idClient)
     {
